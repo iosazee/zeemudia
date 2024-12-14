@@ -1,6 +1,10 @@
 import React from "react";
 import { Meteors } from "../ui/meteors";
 import { TextGenerateEffect } from "../ui/text-generate-effect";
+import ShinyButton from "../ui/shiny-button";
+import { Navigation } from "lucide-react";
+import ShimmerButton from "../ui/shimmer-button";
+import { MessageSquare } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -20,17 +24,19 @@ const HeroSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#portfolio"
-                className="px-8 py-3 rounded-full bg-indigo-500 hover:bg-indigo-600 text-white font-medium transition-colors text-center"
-              >
-                View Projects
+              <a href="#portfolio">
+                <ShinyButton
+                  title="View Projects"
+                  icon={<Navigation className="w-3 h-3" />}
+                  position="right"
+                />
               </a>
-              <a
-                href="#contact"
-                className="px-8 py-3 rounded-full border border-slate-700 hover:border-slate-600 text-slate-300 font-medium transition-colors text-center"
-              >
-                Get in Touch
+              <a href="#contact">
+                <ShimmerButton
+                  title="Get in touch"
+                  icon={<MessageSquare className="w-3 h-3" />}
+                  position="right"
+                />
               </a>
             </div>
           </div>
