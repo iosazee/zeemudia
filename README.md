@@ -135,11 +135,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Contact
-
-Zee Mudia - [Your Email]
-Project Link: [https://github.com/yourusername/portfolio](https://github.com/yourusername/portfolio)
-
 ## Acknowledgments
 
 - [Shadcn/ui](https://ui.shadcn.com/) for UI components
