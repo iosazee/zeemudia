@@ -1,8 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zee Mudia Portfolio
+
+A modern, responsive portfolio website built with Next.js and TailwindCSS, featuring interactive UI components and smooth animations.
+
+![Portfolio Preview](/public/preview.webp)
+
+## Features
+
+- 🎨 Modern UI with animated components
+- 💫 Interactive 3D card effects
+- 🌟 Custom animations and transitions
+- 📱 Fully responsive design
+- ⚡ Optimized performance
+- 🎭 Light/Dark mode support
+- 🔥 Dynamic particle effects
+- 🎪 Animated testimonials carousel
+
+## Tech Stack
+
+- **Framework:** Next.js 14 (App Router)
+- **Styling:** TailwindCSS
+- **Animation:** Framer Motion
+- **UI Components:**
+  - Shadcn/ui
+  - Custom components
+- **Icons:** Lucide React
+- **Deployment:** Vercel
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn or pnpm
+
+### Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/portfolio.git
+```
+
+2. Navigate to the project directory
+
+```bash
+cd portfolio
+```
+
+3. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+4. Start the development server
 
 ```bash
 npm run dev
@@ -10,27 +65,85 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+portfolio/
+├── app/                  # Next.js app router files
+├── components/           # React components
+│   ├── general/         # Main section components
+│   └── ui/              # Reusable UI components
+├── lib/                  # Utility functions and data
+└── public/              # Static assets
+```
 
-## Learn More
+## UI Components
 
-To learn more about Next.js, take a look at the following resources:
+### Sections
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Hero Section with animated text
+- About Section with bento grid layout
+- Projects Section with 3D cards
+- Testimonials Section with animated carousel
+- FAQs Section with accordion
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Performance Optimizations
 
-## Deploy on Vercel
+- Image optimization with Next.js Image component
+- Lazy loading of components
+- Optimized animations for better performance
+- Responsive images and assets
+- Component-level code splitting
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Development
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Code Style
+
+The project uses:
+
+- ESLint for code linting
+- Prettier for code formatting
+- TypeScript for type checking
+
+### Building for Production
+
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+```
+
+## Deployment
+
+The site is optimized for deployment on Vercel. For deployment:
+
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Vercel will automatically deploy your site
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Contact
+
+Zee Mudia - [Your Email]
+Project Link: [https://github.com/yourusername/portfolio](https://github.com/yourusername/portfolio)
+
+## Acknowledgments
+
+- [Shadcn/ui](https://ui.shadcn.com/) for UI components
+- [Framer Motion](https://www.framer.com/motion/) for animations
+- [TailwindCSS](https://tailwindcss.com/) for styling
+- [Lucide Icons](https://lucide.dev/) for icons
+- [Aceternity/ui](https://ui.aceternity.com/) for animations
