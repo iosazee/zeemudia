@@ -27,14 +27,15 @@ const About = () => {
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="relative text-center mb-12 md:mb-16 lg:mb-20">
           <div className="inline-block">
-            <h2 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 animate-gradient-x">
-              About Me
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-indigo-300 via-purple-400 to-indigo-300 bg-clip-text text-transparent animate-gradient-x pb-2">
+              About
             </h2>
+            <div className="h-1 w-full bg-gradient-to-r from-indigo-500/50 via-purple-500/50 to-indigo-500/50 rounded-full mt-2" />
           </div>
-          <p className="text-lg text-gray-400 mt-4 max-w-2xl mx-auto">
-            Transforming healthcare insights into software innovation
+          <p className="text-lg md:text-xl text-gray-400 mt-6 max-w-3xl mx-auto px-4 leading-relaxed">
+            Transforming Healthcare insights into digital innovation
           </p>
         </div>
 

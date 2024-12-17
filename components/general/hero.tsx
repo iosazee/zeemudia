@@ -27,7 +27,7 @@ const HeroSection = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#portfolio">
+                <a href="#projects">
                   <ShinyButton
                     title="View Projects"
                     icon={<Navigation className="w-3 h-3" />}

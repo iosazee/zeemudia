@@ -7,7 +7,7 @@ import { ExternalLink, Code2, Sparkles, ArrowRight } from "lucide-react";
 
 const Projects = () => {
   return (
-    <section id="portfolio" className="relative w-full py-16 md:py-24 lg:py-32">
+    <section id="projects" className="relative w-full py-16 md:py-24 lg:py-32">
       <div className="absolute inset-0">
         <SparklesCore
           id="portfolio-sparkles"
