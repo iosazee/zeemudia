@@ -16,8 +16,7 @@ export const TextGenerateEffect = ({
   duration?: number;
 }) => {
   const [scope, animate] = useAnimate();
-  // Split by period to handle sentences, then split by spaces
-  let wordsArray = words.split(" ");
+  const wordsArray = words.split(" ");
 
   useEffect(() => {
     animate(
@@ -31,7 +30,7 @@ export const TextGenerateEffect = ({
         delay: stagger(0.2),
       }
     );
-  }, [scope.current]);
+  }, [animate, duration, filter]);
 
   const renderWords = () => {
     return (

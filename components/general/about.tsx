@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import FlickeringGrid from "../ui/flickering-grid";
 import { OrbitingCircles } from "../ui/orbiting-circles";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -44,10 +45,12 @@ const About = () => {
             className="md:col-span-5 min-h-[32rem] bg-gradient-to-br from-gray-50/10 to-gray-50/5 hover:from-gray-50/20 hover:to-gray-50/10 group backdrop-blur-sm"
             header={
               <div className="relative h-72 -mx-6 -mt-6 mb-6 overflow-hidden">
-                <img
+                <Image
                   src="/tech.webp"
                   alt="Zee Mudia"
                   className="w-full h-full object-cover rounded-t-xl transform group-hover:scale-105 transition-transform duration-500"
+                  height={1280}
+                  width={720}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center space-x-2">
@@ -71,13 +74,14 @@ const About = () => {
                 <p>
                   Hey, I&apos;m Zee Mudia &#8211; a Software Engineer with a
                   unique journey from dentistry to digital innovation. With a
-                  decade of experience in healthcare, I've brought that same
-                  attention to detail into the world of software development.
+                  decade of experience in healthcare, I&apos;ve brought that
+                  same attention to detail into the world of software
+                  development.
                 </p>
                 <p>
-                  Armed with certifications from EDx/Trilogy Bootcamp and Meta's
-                  fullstack developer specialization, I bridge the gap between
-                  healthcare insights and technological solutions.
+                  Armed with certifications from EDx/Trilogy Bootcamp and
+                  Meta&apos;s fullstack developer specialization, I bridge the
+                  gap between healthcare insights and technological solutions.
                 </p>
                 <p className="text-indigo-300 font-medium">
                   My philosophy? Excellence is in the details, innovation comes
@@ -227,7 +231,6 @@ const About = () => {
             }
           />
 
-          {/* Enhanced Soft Skills Card */}
           <BentoGridItem
             className="md:col-span-2 min-h-[28rem] bg-gradient-to-br from-emerald-500/10 to-blue-500/10 hover:from-emerald-500/20 hover:to-blue-500/20 group"
             header={

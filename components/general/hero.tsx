@@ -65,7 +65,7 @@ const HeroSection = () => {
                   </svg>
                 </div>
                 <p className="text-indigo-300 font-mono text-sm md:text-base pt-3 border-t border-slate-700/50">
-                  Hi, I'm Zee Mudia, full stack developer
+                  Hi, I&apos;m Zee Mudia, full stack developer
                 </p>
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
                   Technical Expertise

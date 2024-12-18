@@ -3,11 +3,11 @@ import { SparklesCore } from "../ui/sparkles";
 import { CardContainer, CardBody, CardItem } from "../ui/3d-card";
 import { projects } from "@/lib/data/projects";
 import Image from "next/image";
-import { ExternalLink, Code2, Sparkles, ArrowRight } from "lucide-react";
+import { Code2, Sparkles, ArrowRight } from "lucide-react";
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative w-full py-16 md:py-24 lg:py-32">
+    <section id="projects" className="relative w-full py-12 md:py-20 lg:py-28">
       <div className="absolute inset-0">
         <SparklesCore
           id="portfolio-sparkles"
