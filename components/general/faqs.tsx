@@ -11,10 +11,7 @@ import {
 
 const FAQ = () => {
   return (
-    <section
-      id="faq"
-      className="relative w-full overflow-hidden py-16 md:py-24 lg:py-32 bg-slate-950"
-    >
+    <section className="relative w-full overflow-hidden py-16 md:py-24 lg:py-32">
       {/* Retro Grid Background */}
       <RetroGrid className="opacity-45" />
 

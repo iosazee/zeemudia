@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: 1,
-    title: "Nubialand Educational Services - a next.js + express app",
+    title: "Nubialand - a next.js + express app",
     des: "A dynamic educational consulting platform that empowers students with personalized guidance and expert support for their academic journey.",
     img: "/p1.jpg",
     iconLists: ["/react.svg", "/next.svg", "/express.svg", "/ts.svg"],
