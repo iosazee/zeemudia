@@ -4,7 +4,7 @@ import Image from "next/image";
 const footerLinks = [
   {
     title: "Github",
-    href: "#",
+    href: "https://github.com/iosazee",
     icon: (
       <Image
         src="/github.webp"
@@ -17,7 +17,7 @@ const footerLinks = [
   },
   {
     title: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/zeemudia/",
     icon: (
       <Image
         src="/linkedin.svg"
@@ -30,7 +30,7 @@ const footerLinks = [
   },
   {
     title: "Bluesky",
-    href: "#",
+    href: "https://bsky.app/profile/zeemudia.com",
     icon: (
       <Image
         src="/bsky.svg"
