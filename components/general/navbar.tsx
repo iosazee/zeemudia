@@ -2,13 +2,14 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
   { name: "About", href: "/#about" },
   { name: "Projects", href: "/#projects" },
   { name: "Testimonials", href: "/#testimonials" },
-  { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 const NavBar = () => {
@@ -26,8 +27,20 @@ const NavBar = () => {
       <div className="relative h-full">
         <nav className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
+            <div className="md:w-24 flex items-center pl-2 md:pl-4">
+              <Link href="/" className="block">
+                <Image
+                  src="/zeemudia.svg"
+                  alt="Zee Mudia Logo"
+                  width={100}
+                  height={40}
+                  className="w-auto h-8 md:h-10 [filter:invert(92%)_sepia(100%)_saturate(0%)_hue-rotate(30deg)_brightness(116%)_contrast(102%)]"
+                />
+              </Link>
+            </div>
+
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center justify-center w-full">
+            <div className="hidden md:flex items-center justify-center flex-1">
               <ul className="flex items-center justify-center space-x-12">
                 {navItems.map((item) => (
                   <li key={item.name}>
@@ -43,7 +56,7 @@ const NavBar = () => {
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden w-full flex justify-end">
+            <div className="md:hidden">
               <button
                 className="p-2 text-gray-200 hover:text-white transition-colors"
                 onClick={() => setIsOpen(!isOpen)}
