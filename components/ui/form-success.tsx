@@ -1,0 +1,16 @@
+import { CircleCheckBig } from "lucide-react";
+
+interface FormSuccessProps {
+  message?: string;
+}
+
+export const FormSuccess = ({ message }: FormSuccessProps) => {
+  if (!message) return null;
+
+  return (
+    <div className="bg-emerald-800 p-3 rounded-md flex items-center gap-x-2 text-sm text-white/95 max-w-xs">
+      <CircleCheckBig className="h-4 w-4" />
+      <p>{message}</p>
+    </div>
+  );
+};

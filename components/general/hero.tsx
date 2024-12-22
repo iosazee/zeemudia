@@ -105,14 +105,14 @@ const HeroSection = () => {
                     <div className="text-sm text-slate-400">Developer</div>
                   </div>
                 </div>
-                <Meteors number={30} />
+                <Meteors number={5} />
               </div>
             </div>
           </div>
         </div>
 
         {/* Global meteors effect */}
-        <Meteors number={20} className="opacity-70" />
+        <Meteors number={5} className="opacity-70" />
       </div>
     </section>
   );

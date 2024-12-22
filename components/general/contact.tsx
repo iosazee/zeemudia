@@ -2,6 +2,7 @@ import React from "react";
 import ShinyButton from "../ui/shiny-button";
 import { ArrowUpRight } from "lucide-react";
 import grainImg from "@/public/grain.jpg";
+import Link from "next/link";
 
 function Contact() {
   return (
@@ -34,13 +35,15 @@ function Contact() {
                 </div>
 
                 <div className="flex-1 md:basis-1/3 flex justify-center md:justify-end">
-                  <div className="transform hover:scale-105 transition-transform duration-300">
-                    <ShinyButton
-                      title="Contact me"
-                      icon={<ArrowUpRight className="w-3 h-3" />}
-                      position="right"
-                    />
-                  </div>
+                  <Link href="/contact" className="w-full md:w-auto">
+                    <div className="transform hover:scale-105 transition-transform duration-300">
+                      <ShinyButton
+                        title="Contact me"
+                        icon={<ArrowUpRight className="w-3 h-3" />}
+                        position="right"
+                      />
+                    </div>
+                  </Link>
                 </div>
               </div>
             </div>
