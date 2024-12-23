@@ -127,13 +127,28 @@ The site is optimized for deployment on Vercel. For deployment:
 2. Connect your repository to Vercel
 3. Vercel will automatically deploy your site
 
-## Contributing
+## Copyright Notice
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+© 2024 Zee Mudia. All Rights Reserved.
 
-## License
+This portfolio and its contents are protected by copyright law. While the repository is public for viewing purposes, the following restrictions apply:
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+**Permitted Uses:**
+
+- Viewing the repository content
+- Using as reference for learning purposes
+- Review for recruitment purposes
+
+**Prohibited Uses:**
+
+- Commercial use of any content
+- Redistribution of code, designs, or other materials
+- Creating derivative works
+- Using any part of this repository in other projects
+
+For permissions beyond these terms, please contact the repository owner.
+
+Note: Third-party libraries and dependencies used in this project are covered by their respective licenses.
 
 ## Acknowledgments
 
