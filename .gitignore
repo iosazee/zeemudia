@@ -46,5 +46,7 @@ env.ts
 .env
 .env.LOCAL
 .env.PRODUCTION
+notes.md
+deploy.sh
 
 
