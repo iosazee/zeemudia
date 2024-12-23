@@ -43,7 +43,7 @@ const Projects = () => {
               className="w-full"
               containerClassName="!py-6 md:!py-8 lg:!py-10"
             >
-              <CardBody className="relative group/card rounded-xl border border-white/10 hover:border-white/20 transition-all duration-500 bg-gradient-to-br from-slate-800/50 to-black/50 backdrop-blur-sm w-full min-h-[550px] md:min-h-[600px] lg:min-h-[650px]">
+              <CardBody className="relative group/card rounded-xl border border-white/10 hover:border-white/20 transition-all duration-500 bg-gradient-to-br from-slate-800/90 via-indigo-950/95 to-purple-900/90 backdrop-blur-sm w-full min-h-[550px] md:min-h-[600px] lg:min-h-[650px]">
                 <CardItem translateZ="120" className="w-full">
                   <div className="relative px-4 md:px-6 lg:px-8 pt-4 md:pt-6 lg:pt-8 overflow-hidden rounded-xl">
                     <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-purple-500/20 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />

@@ -1,5 +1,6 @@
 import React from "react";
 import { Mail, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import ContactForm from "@/components/forms/contact-form";
 import { Meteors } from "@/components/ui/meteors";
 import StarryBackground from "@/components/ui/stars";
@@ -82,7 +83,13 @@ function ContactPage() {
                         className="flex items-center space-x-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 group/link hover:scale-[1.02]"
                       >
                         <div className="p-3 rounded-xl bg-purple-500/10 group-hover/link:bg-purple-500/20 transition-colors">
-                          <div className="h-6 w-6 bg-white rounded-full opacity-90" />
+                          <Image
+                            src="/github.webp"
+                            alt="Github"
+                            width={24}
+                            height={24}
+                            className="opacity-90 group-hover/link:opacity-100 transition-opacity duration-200 bg-white"
+                          />
                         </div>
                         <div>
                           <p className="text-sm text-gray-400">GitHub</p>
@@ -100,7 +107,13 @@ function ContactPage() {
                         className="flex items-center space-x-4 p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-all duration-300 group/link hover:scale-[1.02]"
                       >
                         <div className="p-3 rounded-xl bg-blue-500/10 group-hover/link:bg-blue-500/20 transition-colors">
-                          <div className="h-6 w-6 bg-white rounded-full opacity-90" />
+                          <Image
+                            src="/linkedin.svg"
+                            alt="LinkedIn"
+                            width={24}
+                            height={24}
+                            className="opacity-90 group-hover/link:opacity-100 transition-opacity duration-200 bg-white"
+                          />
                         </div>
                         <div>
                           <p className="text-sm text-gray-400">LinkedIn</p>

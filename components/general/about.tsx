@@ -70,7 +70,7 @@ const About = () => {
               </div>
             }
             description={
-              <div className="space-y-4 text-xl text-gray-300 leading-relaxed">
+              <div className="space-y-4 text-xl text-gray-300 leading-relaxed text-justify">
                 <p>
                   Hey, I&apos;m Zee Mudia &#8211; a Software Engineer with a
                   unique journey from dentistry to digital innovation. With a
