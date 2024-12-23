@@ -17,7 +17,7 @@ A modern, responsive portfolio website built with Next.js and TailwindCSS, featu
 
 ## Tech Stack
 
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 15 / React 19
 - **Styling:** TailwindCSS
 - **Animation:** Framer Motion
 - **UI Components:**
