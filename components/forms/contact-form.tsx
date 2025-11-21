@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Send, Loader2 } from "lucide-react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -61,6 +62,7 @@ const ContactForm = () => {
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();
   const [isPending, setIsPending] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -79,24 +81,41 @@ const ContactForm = () => {
     setIsPending(true);
 
     try {
+      // Execute reCAPTCHA to get token
+      if (!executeRecaptcha) {
+        setError("reCAPTCHA not loaded. Please refresh and try again.");
+        setIsPending(false);
+        return;
+      }
+
+      const recaptchaToken = await executeRecaptcha("contact_submit");
+
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          recaptchaToken,
+        }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error("Too many attempts. Please try again later.");
+        }
         throw new Error(data.error || "Failed to send message");
       }
 
       setSuccess("Message sent successfully! I'll get back to you soon.");
       form.reset();
     } catch (error) {
-      setError(`Something went wrong: ${error}. Please try again later.`);
+      setError(
+        error instanceof Error ? error.message : "Something went wrong. Please try again later."
+      );
     } finally {
       setIsPending(false);
     }
@@ -173,6 +192,28 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
+
+        {/* Honeypot field - hidden from users, catches bots */}
+        <div style={{ position: "absolute", left: "-9999px", opacity: 0 }}>
+          <FormField
+            control={form.control}
+            name="website"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Website</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type="text"
+                    autoComplete="off"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+        </div>
 
         {error && <FormError message={error} />}
         {success && <FormSuccess message={success} />}
