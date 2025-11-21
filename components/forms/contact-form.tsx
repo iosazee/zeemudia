@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Send, Loader2 } from "lucide-react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -19,17 +20,49 @@ import { Textarea } from "@/components/ui/textarea";
 import { FormError } from "@/components/ui/form-error";
 import { FormSuccess } from "@/components/ui/form-success";
 
+// Bot detection patterns
+const hasConsecutiveConsonants = (str: string, count: number): boolean => {
+  const consonantPattern = new RegExp(`[bcdfghjklmnpqrstvwxyz]{${count},}`, "i");
+  return consonantPattern.test(str);
+};
+
+const hasRepeatedChars = (str: string): boolean => {
+  // Detects patterns like "aaaa", "ssss", etc.
+  return /(.)\1{3,}/.test(str);
+};
+
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
+  name: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .refine((val) => !hasConsecutiveConsonants(val, 6), {
+      message: "Please enter a valid name",
+    })
+    .refine((val) => !hasRepeatedChars(val), {
+      message: "Please enter a valid name",
+    }),
   email: z.string().email("Invalid email address"),
-  subject: z.string().min(2, "Subject must be at least 2 characters"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  subject: z
+    .string()
+    .min(5, "Subject must be at least 5 characters")
+    .refine((val) => !hasConsecutiveConsonants(val, 8), {
+      message: "Please enter a valid subject",
+    }),
+  message: z
+    .string()
+    .min(20, "Message must be at least 20 characters")
+    .refine((val) => !hasConsecutiveConsonants(val, 10), {
+      message: "Please enter a valid message",
+    }),
+  website: z.string().optional(), // honeypot field
+  recaptchaToken: z.string().optional(),
 });
 
 const ContactForm = () => {
   const [error, setError] = useState<string | undefined>();
   const [success, setSuccess] = useState<string | undefined>();
   const [isPending, setIsPending] = useState(false);
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -38,6 +71,7 @@ const ContactForm = () => {
       email: "",
       subject: "",
       message: "",
+      website: "", // honeypot
     },
   });
 
@@ -47,24 +81,41 @@ const ContactForm = () => {
     setIsPending(true);
 
     try {
+      // Execute reCAPTCHA to get token
+      if (!executeRecaptcha) {
+        setError("reCAPTCHA not loaded. Please refresh and try again.");
+        setIsPending(false);
+        return;
+      }
+
+      const recaptchaToken = await executeRecaptcha("contact_submit");
+
       const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          ...values,
+          recaptchaToken,
+        }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
+        if (response.status === 429) {
+          throw new Error("Too many attempts. Please try again later.");
+        }
         throw new Error(data.error || "Failed to send message");
       }
 
       setSuccess("Message sent successfully! I'll get back to you soon.");
       form.reset();
     } catch (error) {
-      setError(`Something went wrong: ${error}. Please try again later.`);
+      setError(
+        error instanceof Error ? error.message : "Something went wrong. Please try again later."
+      );
     } finally {
       setIsPending(false);
     }
@@ -141,6 +192,28 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
+
+        {/* Honeypot field - hidden from users, catches bots */}
+        <div style={{ position: "absolute", left: "-9999px", opacity: 0 }}>
+          <FormField
+            control={form.control}
+            name="website"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Website</FormLabel>
+                <FormControl>
+                  <Input
+                    {...field}
+                    type="text"
+                    autoComplete="off"
+                    tabIndex={-1}
+                    aria-hidden="true"
+                  />
+                </FormControl>
+              </FormItem>
+            )}
+          />
+        </div>
 
         {error && <FormError message={error} />}
         {success && <FormSuccess message={success} />}
