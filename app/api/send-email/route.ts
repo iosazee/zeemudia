@@ -23,11 +23,40 @@ function getClientIp(req: Request): string {
   return "unknown";
 }
 
+// LAYER 1: Bot detection pattern functions
+const hasConsecutiveConsonants = (str: string, count: number): boolean => {
+  const consonantPattern = new RegExp(`[bcdfghjklmnpqrstvwxyz]{${count},}`, "i");
+  return consonantPattern.test(str);
+};
+
+const hasRepeatedChars = (str: string): boolean => {
+  // Detects patterns like "aaaa", "ssss", etc.
+  return /(.)\1{3,}/.test(str);
+};
+
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
+  name: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .refine((val) => !hasConsecutiveConsonants(val, 6), {
+      message: "Please enter a valid name",
+    })
+    .refine((val) => !hasRepeatedChars(val), {
+      message: "Please enter a valid name",
+    }),
   email: z.string().email("Invalid email address"),
-  subject: z.string().min(2, "Subject must be at least 2 characters"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  subject: z
+    .string()
+    .min(5, "Subject must be at least 5 characters")
+    .refine((val) => !hasConsecutiveConsonants(val, 8), {
+      message: "Please enter a valid subject",
+    }),
+  message: z
+    .string()
+    .min(20, "Message must be at least 20 characters")
+    .refine((val) => !hasConsecutiveConsonants(val, 10), {
+      message: "Please enter a valid message",
+    }),
   website: z.string().optional(), // honeypot
   recaptchaToken: z.string().optional(),
 });
@@ -87,10 +116,14 @@ export async function POST(req: Request) {
 
     const body = await req.json();
 
-    // Validate the request body
+    // LAYER 1: Enhanced Validation (pattern detection)
     const validatedFields = formSchema.safeParse(body);
 
     if (!validatedFields.success) {
+      console.log("Bot detected: Invalid form data (pattern validation failed)", {
+        errors: validatedFields.error.errors,
+        data: { name: body.name, subject: body.subject, email: body.email }
+      });
       return NextResponse.json({ error: "Invalid form data" }, { status: 400 });
     }
 
