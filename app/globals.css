@@ -87,3 +87,7 @@
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: rgba(99, 102, 241, 0.5);
 }
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
