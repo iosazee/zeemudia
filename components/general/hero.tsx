@@ -99,6 +99,21 @@ const fadeInScale = {
   },
 };
 
+const meteors = [
+  { top: "-5%", left: "12%", size: "1.2px", delay: "0s", duration: "5s" },
+  { top: "8%", left: "35%", size: "1.5px", delay: "1.2s", duration: "4s" },
+  { top: "-2%", left: "58%", size: "0.8px", delay: "2.5s", duration: "6s" },
+  { top: "15%", left: "78%", size: "1.1px", delay: "0.8s", duration: "5.5s" },
+  { top: "3%", left: "92%", size: "1.4px", delay: "3.2s", duration: "4.5s" },
+  { top: "20%", left: "5%", size: "0.9px", delay: "4.1s", duration: "3.5s" },
+  { top: "-8%", left: "45%", size: "1.3px", delay: "1.8s", duration: "6.5s" },
+  { top: "10%", left: "68%", size: "0.7px", delay: "0.3s", duration: "5.2s" },
+  { top: "25%", left: "25%", size: "1.6px", delay: "2.8s", duration: "4.2s" },
+  { top: "-3%", left: "85%", size: "1px", delay: "3.8s", duration: "5.8s" },
+  { top: "12%", left: "50%", size: "1.2px", delay: "4.5s", duration: "3.8s" },
+  { top: "5%", left: "15%", size: "0.6px", delay: "1.5s", duration: "7s" },
+];
+
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen px-6 py-20 flex items-center overflow-hidden" style={{ backgroundColor: "#000319" }}>
@@ -109,19 +124,19 @@ export default function HeroSection() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='100' height='100' fill='none' stroke='white'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E")`,
         }}
       />
-      {/* Falling meteors */}
+      {/* Falling meteors — deterministic positions to avoid hydration mismatch */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {Array.from({ length: 12 }).map((_, i) => (
+        {meteors.map((m, i) => (
           <span
             key={i}
             className="absolute rotate-[215deg] animate-meteor rounded-full bg-slate-300 shadow-[0_0_0_1px_#ffffff10]"
             style={{
-              top: `${Math.random() * 40 - 10}%`,
-              left: `${Math.random() * 100}%`,
-              width: `${Math.random() * 1.5 + 0.5}px`,
-              height: `${Math.random() * 1.5 + 0.5}px`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${Math.random() * 4 + 3}s`,
+              top: m.top,
+              left: m.left,
+              width: m.size,
+              height: m.size,
+              animationDelay: m.delay,
+              animationDuration: m.duration,
             }}
           >
             <span className="absolute top-1/2 -translate-y-1/2 w-[50px] h-[1px] bg-gradient-to-r from-slate-300 to-transparent" />
