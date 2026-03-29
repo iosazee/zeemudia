@@ -55,6 +55,17 @@ export default function FeaturedProject() {
           <div className="mt-7">
             <PlatformBadges />
           </div>
+
+          <div className="mt-6 text-center">
+            <a
+              href="https://brianni.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors text-sm"
+            >
+              View Project →
+            </a>
+          </div>
         </div>
       </motion.div>
     </section>
