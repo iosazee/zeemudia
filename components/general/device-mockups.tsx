@@ -9,24 +9,14 @@ function BrowserMockup() {
         <span className="ml-3 text-[9px] text-slate-500">brianni.co</span>
       </div>
       {/* Body */}
-      <div className="p-5 min-h-[140px]">
-        <div className="flex gap-4">
-          {/* Left content */}
-          <div className="flex-1 space-y-3">
-            <div className="h-[10px] w-3/4 bg-violet-500/30 rounded" />
-            <div className="h-[8px] w-1/2 bg-white/5 rounded" />
-            <div className="h-[8px] w-2/3 bg-white/5 rounded" />
-            <div className="flex gap-2 mt-4">
-              <div className="flex-1 h-12 bg-violet-500/10 border border-violet-500/20 rounded-lg" />
-              <div className="flex-1 h-12 bg-violet-500/10 border border-violet-500/20 rounded-lg" />
-              <div className="flex-1 h-12 bg-violet-500/10 border border-violet-500/20 rounded-lg" />
-            </div>
-          </div>
-          {/* Right sidebar */}
-          <div className="w-[100px]">
-            <div className="h-20 bg-violet-500/[0.08] border border-violet-500/15 rounded-lg" />
-          </div>
-        </div>
+      <div className="relative w-full h-[200px] overflow-hidden">
+        <iframe
+          src="https://brianni.co"
+          className="w-[200%] h-[400%] origin-top-left scale-50 pointer-events-none border-0"
+          title="Brianni"
+          loading="lazy"
+          sandbox="allow-scripts allow-same-origin"
+        />
       </div>
     </div>
   );
