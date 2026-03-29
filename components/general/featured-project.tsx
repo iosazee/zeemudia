@@ -2,8 +2,9 @@
 
 import { motion } from "motion/react";
 import { DeviceMockups } from "./device-mockups";
+import { PlatformBadges } from "./platform-badges";
 
-export function FeaturedProject() {
+export default function FeaturedProject() {
   return (
     <section className="bg-[#0b1120]">
       <motion.div
@@ -34,7 +35,9 @@ export function FeaturedProject() {
         {/* Main showcase card */}
         <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-8">
           <DeviceMockups />
-          {/* PlatformBadges will be added in Task 6b */}
+          <div className="mt-7">
+            <PlatformBadges />
+          </div>
         </div>
       </motion.div>
     </section>

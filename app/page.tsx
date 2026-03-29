@@ -1,5 +1,6 @@
 import Hero from "@/components/general/hero";
 import Services from "@/components/general/services";
+import FeaturedProject from "@/components/general/featured-project";
 import Projects from "@/components/general/projects";
 import Testimonials from "@/components/general/testimonials";
 import FAQ from "@/components/general/faqs";
@@ -10,6 +11,7 @@ export default function Home() {
     <main>
       <Hero />
       <Services />
+      <FeaturedProject />
       <Projects />
       <Testimonials />
       <FAQ />
