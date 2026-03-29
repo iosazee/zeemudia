@@ -101,13 +101,29 @@ const fadeInScale = {
 
 export default function HeroSection() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-20 flex items-center">
+    <section className="relative min-h-screen px-6 py-20 flex items-center overflow-hidden" style={{ backgroundColor: "#000319" }}>
+      {/* Grid background from original site */}
+      <div
+        className="absolute inset-0 opacity-10"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='100' height='100' fill='none' stroke='white'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E")`,
+        }}
+      />
+      {/* Radial gradient mask — fades grid to transparent in center */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundColor: "#000319",
+          maskImage: "radial-gradient(ellipse at center, transparent 20%, black)",
+          WebkitMaskImage: "radial-gradient(ellipse at center, transparent 20%, black)",
+        }}
+      />
       <motion.div
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        className="max-w-3xl mx-auto w-full"
+        className="relative z-10 max-w-3xl mx-auto w-full"
       >
         {/* Availability Badge */}
         <motion.div variants={fadeInUp}>
