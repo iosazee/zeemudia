@@ -1,64 +1,50 @@
 import React from "react";
-import Image from "next/image";
+import { Github, Linkedin } from "lucide-react";
 
-const footerLinks = [
+const socialLinks = [
   {
-    title: "Github",
+    title: "GitHub",
     href: "https://github.com/iosazee",
-    icon: (
-      <Image
-        src="/github.webp"
-        alt="Github"
-        width={20}
-        height={20}
-        className="opacity-70 group-hover:opacity-100 transition-opacity duration-200 bg-white"
-      />
-    ),
+    icon: <Github className="h-5 w-5" />,
   },
   {
     title: "LinkedIn",
     href: "https://www.linkedin.com/in/zeemudia/",
-    icon: (
-      <Image
-        src="/linkedin.svg"
-        alt="LinkedIn"
-        width={20}
-        height={20}
-        className="opacity-70 group-hover:opacity-100 transition-opacity duration-200 bg-white"
-      />
-    ),
+    icon: <Linkedin className="h-5 w-5" />,
   },
   {
     title: "Bluesky",
     href: "https://bsky.app/profile/zeemudia.com",
     icon: (
-      <Image
-        src="/bsky.svg"
-        alt="Bluesky"
-        width={20}
-        height={20}
-        className="opacity-70 group-hover:opacity-100 transition-opacity duration-200 bg-white"
-      />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 568 501"
+        fill="currentColor"
+        className="h-5 w-5"
+      >
+        <path d="M123.121 33.664C188.241 82.553 258.281 181.68 284 234.873c25.719-53.192 95.759-152.32 160.879-201.21C491.866-1.611 568-28.906 568 57.947c0 17.346-9.945 145.713-15.778 166.555-20.275 72.453-94.155 90.933-159.875 79.748C507.222 323.8 536.444 388.56 473.333 453.32c-119.86 122.992-172.272-30.859-185.702-70.281-2.462-7.227-3.614-10.608-3.631-7.733-.017-2.875-1.169.506-3.631 7.733-13.43 39.422-65.842 193.273-185.702 70.281-63.111-64.76-33.889-129.52 80.986-149.071-65.72 11.185-139.6-7.295-159.875-79.748C9.945 203.659 0 75.291 0 57.946 0-28.906 76.135-1.612 123.121 33.664Z" />
+      </svg>
     ),
   },
 ];
 
 function Footer() {
   return (
-    <footer className="relative overflow-x-clip">
-      <div className="absolute h-[400px] w-[1600px] bottom-0 left-1/2 -translate-x-1/2 bg-emerald-300/30 -z-10 [mask-image:radial-gradient(50%_50%_at_bottom_center,black,transparent)]" />
-      <div className="container">
-        <div className="border-t border-white/15 py-6 text-sm flex flex-col md:flex-row items-center gap-8 justify-between">
-          <div className="text-white/90">
-            {`© ${new Date().getFullYear()} zeemudia | All Rights Reserved`}
-          </div>
-          <nav className="flex flex-col md:flex-row items-center gap-8">
-            {footerLinks.map((link) => (
+    <footer className="bg-[#070d1a]">
+      <div className="container mx-auto px-4 py-6">
+        <div className="flex justify-between items-center">
+          <p className="text-slate-500 text-sm">
+            &copy; 2026 Zee Mudia. All rights reserved.
+          </p>
+          <nav className="flex items-center gap-4">
+            {socialLinks.map((link) => (
               <a
-                href={link.href}
                 key={link.title}
-                className="group inline-flex items-center text-white/70 hover:text-white transition-colors duration-200"
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={link.title}
+                className="text-slate-500 hover:text-slate-300 transition-colors"
               >
                 {link.icon}
               </a>

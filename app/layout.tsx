@@ -17,9 +17,14 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Zeemudia's Portfolio",
+  title: "Zee Mudia — Full-Stack Developer & Designer | Web, Mobile & SaaS",
   description:
-    "A minimalist portfolio showcasing my skills and recent projects.",
+    "I design and build websites, web apps, and mobile apps. Available for freelance projects. 25+ products shipped. AI-accelerated delivery.",
+  openGraph: {
+    title: "Zee Mudia — Full-Stack Developer & Designer | Web, Mobile & SaaS",
+    description:
+      "I design and build websites, web apps, and mobile apps. Available for freelance projects. 25+ products shipped. AI-accelerated delivery.",
+  },
 };
 
 export default function RootLayout({
@@ -28,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
