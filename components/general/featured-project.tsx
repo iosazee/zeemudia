@@ -32,29 +32,25 @@ export default function FeaturedProject() {
           </p>
         </div>
 
-        {/* Web showcase */}
+        {/* Showcase */}
         <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 md:p-8">
-          <div className="relative w-full aspect-[2/1] rounded-lg overflow-hidden">
-            <Image
-              src="/projects/brianni.png"
-              alt="Brianni — Private Storage, Smart Delivery"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 800px"
-              priority
-            />
-          </div>
+          <Image
+            src="/projects/brianni.png"
+            alt="Brianni — Private Storage, Smart Delivery"
+            width={900}
+            height={500}
+            className="w-full h-auto rounded-lg"
+            priority
+          />
 
           {/* Mobile showcase */}
-          <div className="relative w-full aspect-[2/1] rounded-lg overflow-hidden mt-4">
-            <Image
-              src="/projects/brianni-mobile.png"
-              alt="Brianni Mobile — iOS and Android"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 800px"
-            />
-          </div>
+          <Image
+            src="/projects/brianni-mobile.png"
+            alt="Brianni Mobile — iOS and Android"
+            width={900}
+            height={500}
+            className="w-full h-auto rounded-lg mt-4"
+          />
 
           <div className="mt-7">
             <PlatformBadges />
