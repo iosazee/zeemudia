@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { DeviceMockups } from "./device-mockups";
+import Image from "next/image";
 import { PlatformBadges } from "./platform-badges";
 
 export default function FeaturedProject() {
@@ -32,9 +32,30 @@ export default function FeaturedProject() {
           </p>
         </div>
 
-        {/* Main showcase card */}
-        <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-8">
-          <DeviceMockups />
+        {/* Web showcase */}
+        <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 md:p-8">
+          <div className="relative w-full aspect-[2/1] rounded-lg overflow-hidden">
+            <Image
+              src="/projects/brianni.png"
+              alt="Brianni — Private Storage, Smart Delivery"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
+              priority
+            />
+          </div>
+
+          {/* Mobile showcase */}
+          <div className="relative w-full aspect-[2/1] rounded-lg overflow-hidden mt-4">
+            <Image
+              src="/projects/brianni-mobile.png"
+              alt="Brianni Mobile — iOS and Android"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 800px"
+            />
+          </div>
+
           <div className="mt-7">
             <PlatformBadges />
           </div>
