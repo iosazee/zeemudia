@@ -109,6 +109,26 @@ export default function HeroSection() {
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='100' height='100' fill='none' stroke='white'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E")`,
         }}
       />
+      {/* Falling meteors */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {Array.from({ length: 12 }).map((_, i) => (
+          <span
+            key={i}
+            className="absolute rotate-[215deg] animate-meteor rounded-full bg-slate-300 shadow-[0_0_0_1px_#ffffff10]"
+            style={{
+              top: `${Math.random() * 40 - 10}%`,
+              left: `${Math.random() * 100}%`,
+              width: `${Math.random() * 1.5 + 0.5}px`,
+              height: `${Math.random() * 1.5 + 0.5}px`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${Math.random() * 4 + 3}s`,
+            }}
+          >
+            <span className="absolute top-1/2 -translate-y-1/2 w-[50px] h-[1px] bg-gradient-to-r from-slate-300 to-transparent" />
+          </span>
+        ))}
+      </div>
+
       {/* Radial gradient mask — fades grid to transparent in center */}
       <div
         className="absolute inset-0"
