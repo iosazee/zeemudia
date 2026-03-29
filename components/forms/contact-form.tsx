@@ -215,17 +215,17 @@ const ContactForm = () => {
           />
         </div>
 
-        {error && <FormError message={error} />}
+        {error && <FormError message={error} onRetry={() => form.handleSubmit(onSubmit)()} />}
         {success && <FormSuccess message={success} />}
 
         <Button
           type="submit"
-          className="w-full bg-gray-200 text-gray-800 hover:bg-gradient-to-r from-emerald-300 to-sky-400"
+          className="w-full bg-emerald-500 hover:bg-emerald-400 text-white font-semibold disabled:opacity-50"
           disabled={isPending}
         >
           {isPending ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              <Loader2 className="mr-2 h-4 w-4 animate-spin text-white" />
               Sending...
             </>
           ) : (

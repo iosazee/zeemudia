@@ -2,15 +2,25 @@ import { TriangleAlert } from "lucide-react";
 
 interface FormErrorProps {
   message?: string;
+  onRetry?: () => void;
 }
 
-export const FormError = ({ message }: FormErrorProps) => {
+export const FormError = ({ message, onRetry }: FormErrorProps) => {
   if (!message) return null;
 
   return (
-    <div className="bg-destructive p-3 flex items-center gap-x-2 text-sm text-white/95 rounded-xl w-full">
+    <div className="bg-destructive/15 p-3 rounded-md flex items-center gap-x-2 text-sm text-destructive">
       <TriangleAlert className="h-4 w-4" />
       <p>{message}</p>
+      {onRetry && (
+        <button
+          type="button"
+          onClick={onRetry}
+          className="ml-auto text-red-400 underline cursor-pointer text-xs shrink-0"
+        >
+          Try again
+        </button>
+      )}
     </div>
   );
 };
