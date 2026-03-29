@@ -24,13 +24,19 @@ export default function Contact() {
           </span>
         </div>
 
-        <h2 className="text-4xl font-extrabold tracking-tight text-slate-50 mb-4">
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="text-4xl font-extrabold tracking-tight text-slate-50 mb-4"
+        >
           Let&apos;s build something
           <br />
           <span className="bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent">
             great together.
           </span>
-        </h2>
+        </motion.h2>
 
         <p className="text-base text-slate-400 leading-relaxed mb-7">
           Have a project in mind? I&apos;d love to hear about it. Get in touch
@@ -38,18 +44,22 @@ export default function Contact() {
         </p>
 
         <div className="flex gap-3 justify-center">
-          <Link
-            href="/contact"
-            className="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors text-[15px]"
-          >
-            Get in Touch
-          </Link>
-          <a
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/contact"
+              className="inline-block px-8 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors text-[15px]"
+            >
+              Get in Touch
+            </Link>
+          </motion.div>
+          <motion.a
             href="mailto:zee@zeemudia.com"
             className="px-8 py-3.5 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-lg transition-colors text-[15px]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
           >
             zee@zeemudia.com
-          </a>
+          </motion.a>
         </div>
       </motion.div>
     </section>

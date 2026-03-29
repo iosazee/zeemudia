@@ -86,109 +86,178 @@ const colorMap: Record<string, { bg: string; border: string; text: string }> = {
   },
 };
 
+const staggerContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+};
+
+const fadeInScale = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
 export default function HeroSection() {
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-900 to-slate-800 px-6 py-20 flex items-center">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
         className="max-w-3xl mx-auto w-full"
       >
         {/* Availability Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6">
-          <motion.span
-            className="w-2 h-2 bg-emerald-500 rounded-full"
-            animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-          <span className="text-xs text-emerald-500 font-semibold">
-            Available for Projects
-          </span>
-        </div>
+        <motion.div variants={fadeInUp}>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-500/10 border border-emerald-500/30 rounded-full mb-6">
+            <motion.span
+              className="w-2 h-2 bg-emerald-500 rounded-full"
+              animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <span className="text-xs text-emerald-500 font-semibold">
+              Available for Projects
+            </span>
+          </div>
+        </motion.div>
 
         {/* Headline */}
-        <h1 className="text-3xl md:text-[42px] font-extrabold tracking-tight leading-[1.1]">
+        <motion.h1
+          variants={fadeInScale}
+          className="text-3xl md:text-[42px] font-extrabold tracking-tight leading-[1.1]"
+        >
           <span className="text-slate-50">I design &amp; build</span>
           <br />
           <span className="bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent">
             products that ship.
           </span>
-        </h1>
+        </motion.h1>
 
         {/* Subheadline */}
-        <p className="text-lg text-slate-400 leading-relaxed max-w-[540px] mt-4 mb-7">
+        <motion.p
+          variants={fadeInUp}
+          className="text-lg text-slate-400 leading-relaxed max-w-[540px] mt-4 mb-7"
+        >
           Full-stack developer &amp; designer building websites, web apps, and
           mobile apps — accelerated by AI tools for faster delivery without
           compromising quality.
-        </p>
+        </motion.p>
 
         {/* CTAs */}
-        <div className="flex flex-row gap-3 mb-8">
-          <a
+        <motion.div variants={fadeInUp} className="flex flex-row gap-3 mb-8">
+          <motion.a
             href="#work"
             className="px-7 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors text-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
           >
             View My Work
-          </a>
-          <Link
-            href="/contact"
-            className="px-7 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-lg transition-colors text-sm"
-          >
-            Get in Touch
-          </Link>
-        </div>
+          </motion.a>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/contact"
+              className="inline-block px-7 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-lg transition-colors text-sm"
+            >
+              Get in Touch
+            </Link>
+          </motion.div>
+        </motion.div>
 
         {/* Skill Pill Rows */}
-        <div>
-          {skillRows.map((row) => (
-            <div key={row.label} className="mb-4">
+        <motion.div variants={fadeInUp}>
+          {skillRows.map((row, rowIndex) => (
+            <motion.div
+              key={row.label}
+              className="mb-4"
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: rowIndex * 0.1,
+                ease: "easeOut",
+              }}
+            >
               <div className="text-[10px] uppercase tracking-[0.15em] text-slate-500 font-semibold mb-2">
                 {row.label}
               </div>
               <div className="flex flex-wrap gap-2">
-                {row.pills.map((pill) => {
+                {row.pills.map((pill, pillIndex) => {
                   const colors = colorMap[pill.color];
                   return (
-                    <span
+                    <motion.span
                       key={pill.name}
                       className={`px-3 py-1 text-[11px] rounded-full ${colors.bg} border ${colors.border} ${colors.text}`}
+                      initial={{ opacity: 0, x: -8 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 0.3,
+                        delay: rowIndex * 0.1 + pillIndex * 0.04,
+                        ease: "easeOut",
+                      }}
                     >
                       {pill.name}
-                    </span>
+                    </motion.span>
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Social Proof Bar */}
-        <div className="flex gap-8 mt-10 pt-6 border-t border-white/[0.06]">
-          <div>
-            <div className="text-2xl font-extrabold text-slate-50">25+</div>
-            <div className="text-[11px] text-slate-500 uppercase tracking-wider">
-              Products Shipped
-            </div>
-          </div>
-          <div>
-            <div className="text-2xl font-extrabold text-slate-50">
-              Design to Code
-            </div>
-            <div className="text-[11px] text-slate-500 uppercase tracking-wider">
-              Figma → Production
-            </div>
-          </div>
-          <div>
-            <div className="text-2xl font-extrabold text-slate-50">
-              AI-Accelerated
-            </div>
-            <div className="text-[11px] text-slate-500 uppercase tracking-wider">
-              Faster Delivery
-            </div>
-          </div>
-        </div>
+        <motion.div
+          variants={fadeInUp}
+          className="flex gap-8 mt-10 pt-6 border-t border-white/[0.06]"
+        >
+          {[
+            {
+              value: "25+",
+              label: "Products Shipped",
+            },
+            {
+              value: "Design to Code",
+              label: "Figma \u2192 Production",
+            },
+            {
+              value: "AI-Accelerated",
+              label: "Faster Delivery",
+            },
+          ].map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.12,
+                ease: "easeOut",
+              }}
+            >
+              <div className="text-2xl font-extrabold text-slate-50">
+                {stat.value}
+              </div>
+              <div className="text-[11px] text-slate-500 uppercase tracking-wider">
+                {stat.label}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </motion.div>
     </section>
   );

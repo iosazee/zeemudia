@@ -24,14 +24,32 @@ export default function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-8">
-          {testimonials.map((testimonial) => (
-            <div
+          {testimonials.map((testimonial, index) => (
+            <motion.div
               key={testimonial.id}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.2,
+                ease: "easeOut",
+              }}
               className="bg-white/[0.03] border border-white/[0.06] rounded-xl p-6"
             >
-              <div className="text-3xl text-emerald-500 leading-none mb-3">
+              <motion.div
+                className="text-3xl text-emerald-500 leading-none mb-3"
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.3,
+                  delay: index * 0.2 + 0.1,
+                  ease: "easeOut",
+                }}
+              >
                 &ldquo;
-              </div>
+              </motion.div>
               <p className="text-sm text-slate-300 italic leading-relaxed mb-5">
                 {testimonial.quote}
               </p>
@@ -52,7 +70,7 @@ export default function Testimonials() {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </motion.div>

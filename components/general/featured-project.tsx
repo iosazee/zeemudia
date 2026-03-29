@@ -22,9 +22,19 @@ export default function FeaturedProject() {
           <h2 className="text-3xl font-extrabold tracking-tight text-slate-50 mb-2">
             Brianni
           </h2>
-          <span className="inline-block px-3 py-1 bg-violet-500/10 border border-violet-500/30 rounded-full text-[11px] text-violet-400 font-semibold mb-3">
+          <motion.span
+            className="inline-block px-3 py-1 bg-violet-500/10 border border-violet-500/30 rounded-full text-[11px] text-violet-400 font-semibold mb-3"
+            animate={{
+              boxShadow: [
+                "0 0 0px rgba(139, 92, 246, 0)",
+                "0 0 8px rgba(139, 92, 246, 0.3)",
+                "0 0 0px rgba(139, 92, 246, 0)",
+              ],
+            }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          >
             SaaS Platform
-          </span>
+          </motion.span>
           <p className="text-[15px] text-slate-400 max-w-[500px] mx-auto leading-relaxed mb-10">
             A zero-knowledge encrypted storage platform with programmable
             conditional delivery. Designed, built, and shipped end-to-end — web,
@@ -34,37 +44,53 @@ export default function FeaturedProject() {
 
         {/* Showcase */}
         <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-6 md:p-8">
-          <Image
-            src="/projects/brianni.png"
-            alt="Brianni — Private Storage, Smart Delivery"
-            width={900}
-            height={500}
-            className="w-full h-auto rounded-lg"
-            priority
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
+            <Image
+              src="/projects/brianni.png"
+              alt="Brianni — Private Storage, Smart Delivery"
+              width={900}
+              height={500}
+              className="w-full h-auto rounded-lg"
+              priority
+            />
+          </motion.div>
 
           {/* Mobile showcase */}
-          <Image
-            src="/projects/brianni-mobile.png"
-            alt="Brianni Mobile — iOS and Android"
-            width={900}
-            height={500}
-            className="w-full h-auto rounded-lg mt-4"
-          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+          >
+            <Image
+              src="/projects/brianni-mobile.png"
+              alt="Brianni Mobile — iOS and Android"
+              width={900}
+              height={500}
+              className="w-full h-auto rounded-lg mt-4"
+            />
+          </motion.div>
 
           <div className="mt-7">
             <PlatformBadges />
           </div>
 
           <div className="mt-6 text-center">
-            <a
+            <motion.a
               href="https://brianni.co"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors text-sm"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
             >
               View Project →
-            </a>
+            </motion.a>
           </div>
         </div>
       </motion.div>

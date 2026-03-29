@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 const services = [
   {
-    icon: "🎨",
+    icon: "\uD83C\uDFA8",
     title: "Web Design",
     description:
       "Modern, responsive designs crafted in Figma and built pixel-perfect. Clean UI, intuitive UX, and designs that convert visitors into customers.",
@@ -13,7 +13,7 @@ const services = [
     tags: ["Figma", "UI/UX", "Responsive", "Tailwind CSS"],
   },
   {
-    icon: "🌐",
+    icon: "\uD83C\uDF10",
     title: "Web Applications",
     description:
       "Custom web apps in the framework that fits your needs — React, Next.js, Vue, or WordPress. Fast, scalable, and built to grow with your business.",
@@ -22,7 +22,7 @@ const services = [
     tags: ["Next.js", "React", "Vue.js", "WordPress", "Django"],
   },
   {
-    icon: "📱",
+    icon: "\uD83D\uDCF1",
     title: "Mobile Apps",
     description:
       "Cross-platform iOS and Android apps with React Native and Expo. One codebase, both app stores, native performance.",
@@ -31,7 +31,7 @@ const services = [
     tags: ["React Native", "Expo", "iOS & Android"],
   },
   {
-    icon: "⚡",
+    icon: "\u26A1",
     title: "AI-Augmented Development",
     description:
       "I leverage cutting-edge AI tools to ship faster. You get the quality of careful craftsmanship with dramatically shorter timelines.",
@@ -46,27 +46,27 @@ const processSteps = [
   {
     name: "Discovery",
     description: "Goals & requirements",
-    badge: "✓ Client Sign-off",
+    badge: "\u2713 Client Sign-off",
   },
   {
     name: "Design",
     description: "Figma mockups & UX",
-    badge: "✓ Client Review",
+    badge: "\u2713 Client Review",
   },
   {
     name: "Build",
     description: "Development sprints",
-    badge: "✓ Demo & Feedback",
+    badge: "\u2713 Demo & Feedback",
   },
   {
     name: "Test",
     description: "QA & user testing",
-    badge: "✓ Client UAT",
+    badge: "\u2713 Client UAT",
   },
   {
     name: "Ship",
     description: "Deploy & launch",
-    badge: "✓ Final Approval",
+    badge: "\u2713 Final Approval",
   },
 ];
 
@@ -119,11 +119,20 @@ export default function Services() {
 
         {/* Service Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const colors = accentMap[service.accent];
             return (
-              <div
+              <motion.div
                 key={service.title}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.1,
+                  ease: "easeOut",
+                }}
+                whileHover={{ y: -4 }}
                 className={`bg-white/[0.03] border ${service.baseBorder ?? "border-white/[0.06]"} rounded-xl p-6 group transition-all duration-200 hover:scale-[1.02] ${service.hoverBorder}`}
               >
                 <div
@@ -147,7 +156,7 @@ export default function Services() {
                     </span>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -162,7 +171,17 @@ export default function Services() {
           <div className="hidden md:flex gap-3">
             {processSteps.map((step, i) => (
               <div key={step.name} className="contents">
-                <div className="bg-emerald-500/[0.08] border border-emerald-500/20 rounded-lg p-3.5 text-center min-w-0 flex-1">
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.4,
+                    delay: i * 0.15,
+                    ease: "easeOut",
+                  }}
+                  className="bg-emerald-500/[0.08] border border-emerald-500/20 rounded-lg p-3.5 text-center min-w-0 flex-1"
+                >
                   <p className="text-[13px] font-bold text-emerald-500 mb-1">
                     {step.name}
                   </p>
@@ -172,7 +191,7 @@ export default function Services() {
                   <span className="inline-block mt-2 px-2 py-0.5 bg-amber-400/10 border border-amber-400/20 rounded text-[9px] text-amber-400 font-semibold">
                     {step.badge}
                   </span>
-                </div>
+                </motion.div>
                 {i < processSteps.length - 1 && (
                   <span className="hidden md:flex items-center text-slate-700">
                     →
