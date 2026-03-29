@@ -5,6 +5,7 @@ export const projects = [
     tags: ["Next.js", "Express", "TypeScript"],
     link: "https://nubialand.com",
     gradient: "from-[#1e3a5f] to-blue-600",
+    screenshot: "/projects/nubialand.png",
   },
   {
     title: "Alumni Solutions",
@@ -12,6 +13,7 @@ export const projects = [
     tags: ["Next.js", "Node.js", "TypeScript"],
     link: "https://alumnisolutionsltd.com",
     gradient: "from-slate-800 to-emerald-500",
+    screenshot: "/projects/alumni-solutions.png",
   },
   {
     title: "Jos Accountants",
@@ -19,5 +21,6 @@ export const projects = [
     tags: ["WordPress", "PHP"],
     link: "https://josaccountants.co.uk",
     gradient: "from-slate-800 to-indigo-500",
+    screenshot: "/projects/jos-accountants.png",
   },
 ];

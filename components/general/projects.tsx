@@ -2,6 +2,7 @@
 
 import { projects } from "@/lib/data/projects";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 export default function Projects() {
   return (
@@ -28,20 +29,22 @@ export default function Projects() {
               key={project.title}
               className="bg-white/[0.03] border border-white/[0.06] rounded-xl overflow-hidden group hover:scale-[1.02] hover:border-white/[0.12] transition-all duration-200"
             >
-              <div className="h-[160px] overflow-hidden bg-slate-800 relative">
+              <div className="h-[180px] overflow-hidden bg-slate-800 relative">
                 <div className="h-5 bg-slate-900 flex items-center px-2 gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
                   <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                  <span className="ml-2 text-[8px] text-slate-500 truncate">{project.link.replace('https://', '')}</span>
+                  <span className="ml-2 text-[8px] text-slate-500 truncate">
+                    {project.link.replace("https://", "")}
+                  </span>
                 </div>
-                <div className="relative w-full h-[140px] overflow-hidden">
-                  <iframe
-                    src={project.link}
-                    className="w-[200%] h-[400%] origin-top-left scale-50 pointer-events-none border-0"
-                    title={project.title}
-                    loading="lazy"
-                    sandbox="allow-scripts allow-same-origin"
+                <div className="relative w-full h-[160px]">
+                  <Image
+                    src={project.screenshot}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                   />
                 </div>
               </div>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function BrowserMockup() {
   return (
     <div className="bg-slate-800 border border-slate-700 rounded-[10px] overflow-hidden">
@@ -10,12 +12,12 @@ function BrowserMockup() {
       </div>
       {/* Body */}
       <div className="relative w-full h-[200px] overflow-hidden">
-        <iframe
-          src="https://brianni.co"
-          className="w-[200%] h-[400%] origin-top-left scale-50 pointer-events-none border-0"
-          title="Brianni"
-          loading="lazy"
-          sandbox="allow-scripts allow-same-origin"
+        <Image
+          src="/projects/brianni.png"
+          alt="Brianni - Zero-knowledge encrypted storage platform"
+          fill
+          className="object-cover object-top"
+          sizes="(max-width: 768px) 100vw, 60vw"
         />
       </div>
     </div>
