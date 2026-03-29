@@ -2,15 +2,10 @@ import React from "react";
 import { Mail, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import ContactForm from "@/components/forms/contact-form";
-import { Meteors } from "@/components/ui/meteors";
-import StarryBackground from "@/components/ui/stars";
 
 function ContactPage() {
   return (
     <div className="relative min-h-screen">
-      {/* Starry Background */}
-      <StarryBackground className="z-0" />
-
       <div className="relative w-full px-4 md:px-8 lg:px-16 py-24 md:py-32">
         <div className="max-w-6xl mx-auto">
           {/* Header Section */}
@@ -39,7 +34,6 @@ function ContactPage() {
                   </p>
                 </div>
                 <ContactForm />
-                <Meteors number={2} />
               </div>
             </div>
 
@@ -136,7 +130,6 @@ function ContactPage() {
                     </p>
                   </div>
                 </div>
-                <Meteors number={2} />
               </div>
             </div>
           </div>
