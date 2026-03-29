@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import Link from "next/link";
+
 
 const skillRows = [
   {
@@ -11,7 +11,6 @@ const skillRows = [
       { name: "UI/UX Design", color: "blue-500" },
       { name: "Next.js", color: "emerald-500" },
       { name: "React", color: "emerald-500" },
-      { name: "Vue.js", color: "teal-400" },
       { name: "React Native", color: "blue-500" },
       { name: "WordPress", color: "blue-500" },
     ],
@@ -24,16 +23,6 @@ const skillRows = [
       { name: "Django", color: "green-500" },
       { name: "PostgreSQL", color: "pink-500" },
       { name: "AWS", color: "amber-400" },
-    ],
-  },
-  {
-    label: "AI-Powered Workflow",
-    pills: [
-      { name: "Claude AI", color: "violet-500" },
-      { name: "Cursor", color: "violet-500" },
-      { name: "OpenAI Codex", color: "violet-500" },
-      { name: "v0 by Vercel", color: "violet-500" },
-      { name: "GitHub Copilot", color: "violet-500" },
     ],
   },
 ];
@@ -139,10 +128,10 @@ export default function HeroSection() {
           variants={fadeInScale}
           className="text-3xl md:text-[42px] font-extrabold tracking-tight leading-[1.1]"
         >
-          <span className="text-slate-50">I design &amp; build</span>
+          <span className="text-slate-50">I build websites &amp; apps</span>
           <br />
           <span className="bg-gradient-to-r from-emerald-500 to-blue-500 bg-clip-text text-transparent">
-            products that ship.
+            that grow your business.
           </span>
         </motion.h1>
 
@@ -151,29 +140,31 @@ export default function HeroSection() {
           variants={fadeInUp}
           className="text-lg text-slate-400 leading-relaxed max-w-[540px] mt-4 mb-7"
         >
-          Full-stack developer &amp; designer building websites, web apps, and
-          mobile apps — accelerated by AI tools for faster delivery without
-          compromising quality.
+          Full-stack developer &amp; designer who handles everything from design
+          to deployment — so you can focus on running your business. AI-accelerated
+          delivery, no corners cut.
         </motion.p>
 
         {/* CTAs */}
-        <motion.div variants={fadeInUp} className="flex flex-row gap-3 mb-8">
+        <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-3 mb-8">
+          <motion.a
+            href="https://cal.com/zeemudia/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-7 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors text-sm text-center"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            Book a Free Discovery Call
+          </motion.a>
           <motion.a
             href="#work"
-            className="px-7 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors text-sm"
+            className="px-7 py-3.5 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-lg transition-colors text-sm text-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
             View My Work
           </motion.a>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              href="/contact"
-              className="inline-block px-7 py-3 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-lg transition-colors text-sm"
-            >
-              Get in Touch
-            </Link>
-          </motion.div>
         </motion.div>
 
         {/* Skill Pill Rows */}
@@ -227,15 +218,15 @@ export default function HeroSection() {
           {[
             {
               value: "25+",
-              label: "Products Shipped",
+              label: "Projects Delivered",
             },
             {
-              value: "Design to Code",
-              label: "Figma \u2192 Production",
+              value: "5+",
+              label: "Years Experience",
             },
             {
-              value: "AI-Accelerated",
-              label: "Faster Delivery",
+              value: "100%",
+              label: "Client Retention",
             },
           ].map((stat, index) => (
             <motion.div

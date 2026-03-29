@@ -39,12 +39,14 @@ const NavBar = () => {
                 {link.name}
               </a>
             ))}
-            <Link
-              href="/contact"
+            <a
+              href="https://cal.com/zeemudia/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-emerald-500 hover:bg-emerald-400 hover:scale-105 transition-all text-white font-semibold text-sm rounded-md px-4 py-1.5"
             >
-              Hire Me
-            </Link>
+              Book a Call
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,13 +79,15 @@ const NavBar = () => {
                   {link.name}
                 </a>
               ))}
-              <Link
-                href="/contact"
+              <a
+                href="https://cal.com/zeemudia/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-emerald-500 hover:bg-emerald-400 hover:scale-105 transition-all text-white font-semibold text-sm rounded-md px-4 py-1.5 text-center mx-auto mt-2"
                 onClick={() => setIsOpen(false)}
               >
-                Hire Me
-              </Link>
+                Book a Call
+              </a>
             </div>
           </motion.div>
         )}

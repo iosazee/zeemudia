@@ -39,27 +39,29 @@ export default function Contact() {
         </motion.h2>
 
         <p className="text-base text-slate-400 leading-relaxed mb-7">
-          Have a project in mind? I&apos;d love to hear about it. Get in touch
-          and I&apos;ll get back to you within 24 hours.
+          Have a project in mind? Book a free discovery call and I&apos;ll help
+          you figure out the best approach — no commitment, no hard sell.
         </p>
 
-        <div className="flex gap-3 justify-center">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors text-[15px]"
-            >
-              Get in Touch
-            </Link>
-          </motion.div>
+        <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <motion.a
-            href="mailto:zee@zeemudia.com"
-            className="px-8 py-3.5 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-lg transition-colors text-[15px]"
+            href="https://cal.com/zeemudia/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-white font-semibold rounded-lg transition-colors text-[15px] text-center"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
-            zee@zeemudia.com
+            Book a Free Discovery Call
           </motion.a>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+            <Link
+              href="/contact"
+              className="inline-block px-8 py-3.5 border border-slate-700 hover:border-slate-500 text-slate-300 rounded-lg transition-colors text-[15px] text-center"
+            >
+              Or Send a Message
+            </Link>
+          </motion.div>
         </div>
       </motion.div>
     </section>
